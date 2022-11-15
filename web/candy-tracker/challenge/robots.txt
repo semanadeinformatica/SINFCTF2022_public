@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /api/secret_store.php
+Disallow: /flag.txt

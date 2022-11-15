@@ -1,0 +1,9 @@
+NOUGAT'S FRIED CHICKEN: Good morning, Nougat's Fried Chicken here. What can I do for you?
+CUSTOMER: Hotel Echo Lima Lima Oscar India Whiskey Alfa November Tango Tango Oscar Oscar Romeo Delta Echo Romeo Lima Uniform November Charlie Hotel
+NOUGAT'S FRIED CHICKEN: Excuse me, what was that?
+CUSTOMER: Charlie Alfa November Yankee Oscar Uniform November Oscar Tango Hotel Echo Alfa Romeo Mike Echo?
+NOUGAT'S FRIED CHICKEN: I'm afraid I don't understand you very well. Do you want to order something?
+CUSTOMER: Yankee Echo Sierra India Whiskey Alfa November Tango Alfa Sierra India November Foxtrot Charlie Tango Foxtrot Two Zero Two Two { India Mike Juliett Alfa Mike Echo Sierra Bravo Oscar November Delta Zero Zero Seven Papa Echo Whiskey Papa Echo Whiskey Bravo Oscar Oscar Mike } Papa Lima Echo Alfa Sierra Echo
+NOUGAT'S FRIED CHICKEN: Oh I think I get it now! Thank you so much for your order, we'll get back to you in a bit.
+CUSTOMER: Tango Hotel Alfa November Kilo Sierra Alfa Lima Oscar Tango Hotel Alfa Victor Echo Alfa November India Charlie Echo Delta Alfa Yankee
+NOUGAT'S FRIED CHICKEN: Thanks, you too! Goodbye.

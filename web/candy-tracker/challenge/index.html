@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Candy Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+
+</head>
+
+<body>
+    <div class="col align-center">
+        <div class="row mb-4">
+            <h1 class="mr-3">Candy Tracker</h1>
+            <button class="btn btn-dark" id="add-candy" data-bs-toggle="modal" data-bs-target="#modal">?</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel">How to use the service</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>This is a simple candy tracker that we use for making sure all hungry people of NIAEFEUP
+                                can
+                                satisfy themselves with their favorite candy. If you recently visited Ni's room and left
+                                a candy, it is now ours, so please register it in this service.</p>
+                            <small>Note that we'd like every candy name to start with ours, so we've enforced it. Hope
+                                you
+                                don't mind.</small>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thank you for this
+                                amazing information</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <form id="new-candy" class="row" onsubmit="return submitNewCandy(event)">
+                <div class="mr-3">
+                    <label hidden for="candy-name">Candy Name</label>
+                    <input type="text" class="form-control bg-dark" id="candy-name" placeholder="Enter new candy name">
+                </div>
+                <button id="submit-button" type="submit" class="btn btn-dark">Add Candy</button>
+            </form>
+        </div>
+        <div class="row mb-5" id="response-message">
+
+        </div>
+        <div class="row mb-1">
+            <h5>Currently in room</h5>
+        </div>
+        <div class="row">
+            <div id="candies"></div>
+        </div>
+    </div>
+</body>
+
+</html>

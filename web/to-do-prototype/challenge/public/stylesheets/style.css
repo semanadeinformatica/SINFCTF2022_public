@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons&display=block");
+
+:root {
+    color-scheme: light;
+    background-color: rgb(var(--color-surface));
+    color: rgba(var(--color-on-surface), var(--opacity-high-emphasis));
+
+    transition-property: color, background;
+
+    /* Colors (must be used in rgb()/rgba()) */
+    --color-main: 98, 0, 238;
+    --color-on-main: 255, 255, 255;
+    --color-surface: 255, 255, 255;
+    --color-on-surface: 0, 0, 0;
+    --color-contrast-main: 187, 134, 252;
+    --color-on-contrast-main: 0, 0, 0;
+
+    /* Opacity levels */
+    --opacity-hover: 4%;
+    --opacity-focus: 12%;
+    --opacity-active: 16%;
+    --opacity-high-emphasis: 87%;
+    --opacity-medium-emphasis: 60%;
+    --opacity-disabled: 38%;
+
+    /* Other */
+    --overlay-common: inset 0 0 0 50000px;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+
+        /* Colors for use in rgba */
+        --color-main: 187, 134, 252;
+        --color-on-main: 0, 0, 0;
+        --color-surface: 18, 18, 18;
+        --color-on-surface: 255, 255, 255;
+        --color-contrast-main: 98, 0, 238;
+        --color-on-contrast-main: 255, 255, 255;
+    }
+}
+
+:root {
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.03125em;
+
+    height: 100%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    list-style-type: none;
+
+    --opacity-overlay: 0%;
+    --elevation: var(--elevation-0);
+    --color-overlay: var(--color-on-surface);
+    --shadow: 0 0 0 0 transparent;
+    box-shadow: var(--overlay-common)
+            rgba(var(--color-overlay), var(--opacity-overlay)),
+        var(--elevation), var(--shadow);
+
+    transition-property: box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    margin: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+li,
+form {
+    list-style: none;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    padding: 0.5rem;
+    background-color: rgb(var(--color-main));
+    color: rgb(var(--color-on-main));
+    border-radius: 0.5rem;
+}
+
+li input[type="checkbox"]:checked ~ span {
+    color: rgba(var(--color-on-main), var(--opacity-disabled));
+}
+
+li input[type="checkbox"]:checked ~ span::after {
+    margin-right: 0;
+    background-color: rgba(var(--color-on-main), var(--opacity-disabled));
+}
+
+li span {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    transition-property: color;
+}
+
+li span::after {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-radius: 1px;
+    background-color: rgb(var(--color-on-main));
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-right: 100%;
+
+    transition-property: margin, background;
+}
+
+li > label,
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+form {
+    margin-inline: 0.5rem;
+}
+
+input[type="text"] {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    outline: none;
+    flex: 1;
+    color: rgb(var(--color-on-main));
+}
+input[type="text"]::-webkit-input-placeholder {
+    color: rgba(var(--color-on-main), var(--opacity-medium-emphasis));
+}
+
+/* CHECKBOXES */
+input[type="checkbox"] {
+    display: inline-grid;
+    grid-template: "center" auto / auto;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    color: rgba(var(--color-on-main), 0.54);
+
+    appearance: none;
+    border: none;
+    outline: none;
+    margin: 0;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    --color-overlay: var(--color-on-main);
+
+    transition-property: box-shadow, color;
+}
+
+input[type="checkbox"]::before,
+input[type="checkbox"]::after {
+    grid-area: center;
+
+    display: block;
+
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    font-family: "Material Icons";
+    line-height: 1;
+}
+
+input[type="checkbox"]::before {
+    content: "check_box_outline_blank";
+}
+
+input[type="checkbox"]::after {
+    content: "check_box";
+
+    clip-path: circle(0%);
+
+    transition-property: clip-path;
+}
+
+input[type="checkbox"]:indeterminate::after {
+    content: "indeterminate_check_box";
+}
+
+input[type="checkbox"]:checked::after,
+input[type="checkbox"]:indeterminate::after {
+    clip-path: circle(50%);
+}
+
+input[type="checkbox"]:hover {
+    --opacity-overlay: var(--opacity-hover);
+}
+
+input[type="checkbox"]:focus {
+    --opacity-overlay: var(--opacity-focus);
+}
+
+input[type="checkbox"]:active {
+    --opacity-overlay: var(--opacity-active);
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:indeterminate {
+    --color-overlay: var(--color-contrast-main);
+    color: rgb(var(--color-contrast-main));
+}
+
+input[type="checkbox"]:disabled {
+    color: rgba(var(--color-on-main), var(--opacity-disabled));
+    box-shadow: none;
+
+    cursor: initial;
+}
+
+input[type="checkbox"]:disabled:checked::before,
+input[type="checkbox"]:disabled:indeterminate::before {
+    display: none;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    border: none;
+    border-radius: 500000px;
+    outline: none;
+
+    user-select: none;
+    white-space: nowrap;
+
+    transition-property: box-shadow, color, background;
+
+    display: inline-block;
+
+    font-size: 24px;
+    font-family: "Material Icons";
+    line-height: 1;
+    letter-spacing: initial;
+
+    text-transform: none;
+    user-select: none;
+
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    color: rgba(var(--color-on-main), var(--opacity-high-emphasis));
+    background-color: transparent;
+
+    --color-overlay: var(--color-on-main);
+}
+
+button:hover {
+    --opacity-overlay: var(--opacity-hover);
+}
+
+button:focus {
+    --opacity-overlay: var(--opacity-focus);
+}
+
+button:active {
+    --opacity-overlay: var(--opacity-active);
+}
+
+button:disabled {
+    color: rgb(var(--color-on-surface));
+    opacity: var(--opacity-disabled);
+    cursor: initial;
+    box-shadow: none;
+}
+
+p {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+textarea {
+    margin: 0.5rem;
+    height: 300px;
+}
+
+a {
+    color: inherit;
+}
+
+.tooltip {
+    position: relative;
+    top: -65px;
+    right: -750px;
+    width: 50px;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+
+    font-size: 24px;
+    font-family: "Material Icons";
+    line-height: 1;
+    letter-spacing: initial;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 320px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 15px;
+  
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.03125em;
+
+    /* Position the tooltip */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
